@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Person;
 use App\Http\Requests\PersonCreateRequest;
+use App\Http\Requests\PersonUpdateRequest;
 
 class PersonController extends Controller
 {
@@ -12,9 +13,15 @@ class PersonController extends Controller
         return view('Persons.index',compact('persons'));
     }
 
-    public function show()
+    public function show(Person $person)
     {
+        return view('Persons.show', compact('person'));
+    }
 
+    public function update(PersonUpdateRequest $request, Person $person)
+    {
+        $person->update($request->validated());
+        return redirect()->back();
     }
 
     public function store(PersonCreateRequest $request, Person $person)
