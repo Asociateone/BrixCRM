@@ -16,8 +16,8 @@ class PersonController extends Controller
 
     }
 
-    public function Create(PersonCreateRequest $request)
+    public function store(PersonCreateRequest $request, Person $person)
     {
-
+        return $person->create($request->validated());
     }
 }
