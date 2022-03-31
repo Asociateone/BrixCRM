@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Models\Person;
+use App\Http\Requests\PersonCreateRequest;
 
 class PersonController extends Controller
 {
-    public function index ()
+    public function index (Person $person)
     {
-
+        return view('Persons.index');
     }
 
     public function show()
@@ -16,7 +16,7 @@ class PersonController extends Controller
 
     }
 
-    public function Create()
+    public function Create(PersonCreateRequest $request)
     {
 
     }
