@@ -6,9 +6,10 @@ use App\Http\Requests\PersonCreateRequest;
 
 class PersonController extends Controller
 {
-    public function index (Person $person)
+    public function index (Person $persons)
     {
-        return view('Persons.index');
+        $persons = $persons->get();
+        return view('Persons.index',compact('persons'));
     }
 
     public function show()
@@ -18,6 +19,7 @@ class PersonController extends Controller
 
     public function store(PersonCreateRequest $request, Person $person)
     {
-        return $person->create($request->validated());
+        $person->create($request->validated());
+        return redirect()->back();
     }
 }

@@ -9,4 +9,9 @@
             @csrf
         </form>
     </div>
+    <div class="container">
+        @foreach ($persons as $person)
+            {{$person}}
+        @endforeach
+    </div>
 @endsection
