@@ -14,7 +14,8 @@ class PersonCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name' => 'string|required|min:2',
+            'last_name' => 'string|required|min:2',
         ];
     }
 }
