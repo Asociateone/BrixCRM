@@ -26,7 +26,11 @@
                         @method('PUT')
                         <td><input type="text" name="first_name" id="first_name" value="{{$person->first_name}}"></td>
                         <td><input type="text" name="last_name" id="last_name" value="{{$person->last_name}}"></td>
-                        <td><input type="checkbox" name="actions_blocked" id="actions_blocked" @checked($person->actions_blocked)></td>
+                        <td>
+                            <select name="actions_blocked" id="actions_blocked">
+                                <option value="1">Blocked</option>
+                                <option value="0" @if (!$person->actions_blocked) selected @endif>Not blocked</option>
+                            </select></td>
                         @csrf
                         <td><button type="submit">Change</button></td>
                     </form>
