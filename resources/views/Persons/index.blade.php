@@ -17,6 +17,7 @@
                     <td>Last name</td>
                     <td>Blocked</td>
                     <td>change</td>
+                    <td>Go to profile</td>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,11 @@
                         @csrf
                         <td><button type="submit">Change</button></td>
                     </form>
+                    <td>
+                        <a href={{route('persons.show',['person' => $person->id])}}>
+                            <button >Go</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

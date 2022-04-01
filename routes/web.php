@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::apiResource('persons', PersonController::class);
+Route::apiResource('persons', PersonController::class)->names('persons');
