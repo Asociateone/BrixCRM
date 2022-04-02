@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\SubscriptionController;
+use App\Models\Subscription;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +15,9 @@ use App\Http\Controllers\PersonController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::apiResource('/persons', PersonController::class)->names('persons');
+Route::prefix('/persons')->group(function () {
+    Route::apiResource('/subsciptions', SubscriptionController::class)->names('subsciptions');
 });
 
-Route::apiResource('persons', PersonController::class)->names('persons');
+

@@ -10,7 +10,7 @@ class Subscription extends Model
 {
     use HasFactory;
 
-    protected $variable = [
+    protected $fillable = [
         'phone_number',
         'active',
         'person_id'
