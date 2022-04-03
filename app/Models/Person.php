@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Subscription;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Person extends Model
 {
@@ -17,8 +17,8 @@ class Person extends Model
         'actions_blocked',
     ];
 
-    public function subscriptions(): BelongsTo
+    public function subscriptions(): HasMany
     {
-        return $this->belongsTo(Subscription::class);
+        return $this->hasMany(Subscription::class);
     }
 }

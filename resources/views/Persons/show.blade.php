@@ -35,10 +35,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <form action={{route('subsciptions.store',['person' => $person->id])}} method="POST">
+                    <form action={{route('subsciptions.store', ['person' => $person->id])}} method="post">
                         <td><input type="text" name="phone_number" id="phone_number" value="+316"></td>
+                        <td><input type="hidden" name="person_id" value={{$person->id}}></td>
                         @csrf
-                        <td><input type="submit" value="Invullen"></td>
+                        <td><input type="submit"></td>
                     </form>
                 </tr>
 

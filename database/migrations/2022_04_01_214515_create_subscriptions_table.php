@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('phone_number');
+            $table->string('phone_number')->unique();
             $table->boolean('active')->default(true);
             $table->foreignId('person_id');
             $table->timestamps();

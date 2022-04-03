@@ -15,6 +15,7 @@ class SubscriptionRequest extends FormRequest
     {
         return [
             'phone_number' => 'string',
+            'person_id' => 'int',
         ];
     }
 }
