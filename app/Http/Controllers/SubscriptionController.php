@@ -11,11 +11,12 @@ class SubscriptionController extends Controller
 {
     public function update(SubscriptionUpdateRequest $request, Person $person): RedirectResponse
     {
-        $person->subscriptions->where('id',$request->subscription_id)->first()->update($request->validated());
+        $person->subscriptions->where('id', $request->subscription_id)->first()->update($request->validated());
+
         return redirect()->back();
     }
 
-    public function store(SubscriptionRequest $request,Person $person): RedirectResponse
+    public function store(SubscriptionRequest $request, Person $person): RedirectResponse
     {
         $person->subscriptions()->create($request->validated());
 

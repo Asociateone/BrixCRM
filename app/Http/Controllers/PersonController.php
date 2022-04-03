@@ -24,12 +24,14 @@ class PersonController extends Controller
     public function update(PersonUpdateRequest $request, Person $person): RedirectResponse
     {
         $person->update($request->validated());
+
         return redirect()->back();
     }
 
     public function store(PersonCreateRequest $request, Person $person): RedirectResponse
     {
         $person->create($request->validated());
+
         return redirect()->back();
     }
 }
