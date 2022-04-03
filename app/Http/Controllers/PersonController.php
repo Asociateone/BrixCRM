@@ -18,9 +18,7 @@ class PersonController extends Controller
 
     public function show(Person $person): View
     {
-        $subscriptions = $person->subscriptions()->get();
-
-        return view('Persons.show', compact('person','subscriptions'));
+        return view('Persons.show', compact('person'));
     }
 
     public function update(PersonUpdateRequest $request, Person $person): RedirectResponse

@@ -35,15 +35,35 @@
             </thead>
             <tbody>
                 <tr>
-                    <form action={{route('subsciptions.store', ['person' => $person->id])}} method="post">
+                    <form action={{route('subscriptions.store', ['person' => $person->id])}} method="post">
                         <td><input type="text" name="phone_number" id="phone_number" value="+316"></td>
                         <td><input type="hidden" name="person_id" value={{$person->id}}></td>
                         @csrf
                         <td><input type="submit"></td>
                     </form>
                 </tr>
-
-                {{$person->subscriptions}}
+            <tfoot>
+                @foreach ($person->subscriptions as $subscription)
+                    <tr>
+                        <form action={{route('subscriptions.update', ['person' => $person->id, 'subscription' => $subscription->id])}} method="POST">
+                            @method('PUT')
+                            <td>
+                                <input type="text" name="phone_number" id="phone_number" value="{{$subscription->phone_number}}"/></td>
+                            <td>
+                                <select name="active" id="active">
+                                    <option value="1" @if($subscription->active) selected @endif>Active</option>
+                                    <option value="0" @if(!$subscription->active) selected @endif>In-active</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit">Change</button>
+                            </td>
+                            <input type="hidden" name="subscription_id" id="subscription_id" value="{{$subscription->id}}">
+                            @csrf
+                        </form>
+                    </tr>
+                @endforeach
+            </tfoot>
             </tbody>
         </table>
     </div>

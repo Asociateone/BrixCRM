@@ -17,7 +17,7 @@ use App\Models\Subscription;
 */
 Route::apiResource('/persons', PersonController::class)->names('persons');
 Route::prefix('persons')->group(function () {
-    Route::apiResource('{person}/subsciptions', SubscriptionController::class)->names('subsciptions');
+    Route::apiResource('{person}/subscriptions', SubscriptionController::class)->names('subscriptions');
 });
 
 
