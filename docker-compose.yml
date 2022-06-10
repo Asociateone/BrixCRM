@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: php-apache
+    image: php:8.1-apache
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 8000:80
+  db:
+      container_name: db
+      image: mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_HOST: localhost
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: BrixCrm
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+      ports:
+          - "9906:3306"
