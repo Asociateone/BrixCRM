@@ -1,3 +1,6 @@
 {
     
+    "require-dev": {
+        "webimpress/coding-standard": "^1.2"
+    }
 }
