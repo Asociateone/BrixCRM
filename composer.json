@@ -1,5 +1,10 @@
 {
-    
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "App\\Databases\\": "app/databases/"
+        }
+    },
     "require-dev": {
         "webimpress/coding-standard": "^1.2"
     }
