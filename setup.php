@@ -4,9 +4,7 @@ require_once 'vendor/autoload.php';
 
 use App\Databases\MySQL;
 
-$db = new MySQL();
-
-$db = $db->open();
+$db = MySQL::open();
 
 $person = "CREATE TABLE Persons (
     id VARCHAR(50) PRIMARY KEY,

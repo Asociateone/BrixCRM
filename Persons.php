@@ -6,4 +6,4 @@ use App\Person;
 
 $person = new Person();
 
-echo json_encode($person->newPerson($_POST['firstname'], $_POST['lastname']));
+echo json_encode($person->getPerson($_POST['person_id']));
