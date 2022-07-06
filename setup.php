@@ -21,6 +21,26 @@ $subscriptions = "CREATE TABLE Subscriptions (
     FOREIGN KEY (persons_id) REFERENCES Persons(id)
     )";
 
+$invoices = "CREATE TABLE Invoices (
+    id VARCHAR(50) PRIMARY KEY,
+    date DateTime NOT NULL,
+    paid BOOLEAN,
+    amount FLOAT(50),
+    subscription_id VARCHAR(50) NOT NULL
+    FOREIGN KEY (subscription_id) REFERENCES Subscriptions(id)
+    )";
+
+$orders = "CREATE TABLE Orders (
+    id VARCHAR(50) PRIMARY KEY,
+    `type` VARCHAR(50) NOT NULL,
+    `status` VARCHAR(50) NOT NULL,
+    `date` DateTime,
+    subscription_id VARCHAR(50) NOT NULL
+    FOREIGN KEY (subscription_id) REFERENCES Subscriptions(id)
+    )";
+
+$db->query($invoices);
+
 $db->query($person);
 
 $db->query($subscriptions);
